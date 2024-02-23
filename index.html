@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do-list</title>
+    <script src="https://kit.fontawesome.com/babc3a2b5a.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="continer">
+        <h1>TO-DO-LIST</h1>
+        <div class="inputs">
+            <form onsubmit="handleSubmitForm(event)">
+                <div class="label1">
+                    <label for="id" id="sno">Title</label>
+                    <input type="text" placeholder="Enter Title" id="title" class="text_form" required>
+                </div>
+                <div class="label1">
+                    <label for="des">Description</label>
+                    <input type="text" placeholder="Enter your description" id="desc" class="text_form" required>
+                </div>
+                <input type="submit" value="Add" class="submit_button" />
+            </form>
+            <div class="display">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Sr.no.</th>
+                            <th>Title</th>
+                            <th>Description</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
