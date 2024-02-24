@@ -44,6 +44,9 @@ async function handleAddPost(e) {
     const tableBody = document.getElementById('table-body');
     tableBody.innerHTML = '';
     displaytodos();
+    document.getElementById('title').value = null;
+    document.getElementById('desc').value = null;
+
 }
 function displaytodos() {
     console.log(postData);
@@ -96,10 +99,12 @@ function handleEditPost(e) {
         })
         document.getElementById('title').value = data.title;
         document.getElementById('desc').value = data.body;
+        changeButton();
+
     }
     else {
-        document.getElementById('title').value = " ";
-        document.getElementById('desc').value = " ";
+        document.getElementById('title').value = null;
+        document.getElementById('desc').value = null;
 
     }
 }
@@ -129,8 +134,14 @@ async function submitEditData(e) {
     const tableBody = document.getElementById('table-body');
     tableBody.innerHTML = '';
     displaytodos();
+    cancleFunction();
+
+    document.getElementById('title').value = null;
+    document.getElementById('desc').value = null;
     isEdit = false;
     editId = undefined;
+
+
 }
 async function handleDeletePost(e) {
     // let data = postData.find(val => val.id == id);
@@ -147,6 +158,33 @@ async function handleDeletePost(e) {
     }
 }
 
+function changeButton() {
+    let button = document.getElementById("edit");
+    button.value = "Edit";
+    let form = document.querySelector('form')
+    const btn = document.createElement("input");
+    btn.type = "submit"
+    btn.value = "Cancle";
+    form.appendChild(btn);
+    btn.setAttribute("id", "cancle")
+    const list = btn.classList;
+    list.add("submit_button");
+    btn.addEventListener("click", cancleFunction);
+
+
+}
+function cancleFunction() {
+    let button = document.getElementById("edit");
+    button.value = "Add";
+    let cancleButton = document.getElementById("cancle");
+    cancleButton.remove();
+    document.getElementById('title').value = null;
+    document.getElementById('desc').value = null;
+
+
+
+
+}
 
 
 
